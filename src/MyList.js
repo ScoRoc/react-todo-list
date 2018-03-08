@@ -23,6 +23,12 @@ class MyList extends Component {
     })
   }
 
+  handleKeyPress = (e) => {
+  	if (e.key === 'Enter') {
+  		this.addItem(e)
+  	}
+  }
+
   addItem = (e) => {
     e.preventDefault()
     //create a copy of the array bc arrays are referenced
@@ -76,6 +82,7 @@ class MyList extends Component {
               this.textInput = el;
             }}
             onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress /*need to finish writing this to make enter hit submit*/}
             value={this.state.currentItem}
         />
         <br />
